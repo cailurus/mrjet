@@ -1,9 +1,11 @@
-from typing import Optional
-from logger import logger
-import m3u8
 import re
-from request_handler import RequestHandler
+from typing import Optional
+
+import m3u8
 from pym3u8downloader import M3U8Downloader
+
+from mrjet.logger import logger
+from mrjet.request_handler import RequestHandler
 
 
 class MovieDownloader:
@@ -34,7 +36,7 @@ class MovieDownloader:
             return None
         return movie_id
 
-    def download(self, url: str) -> None:
+    def download(self, url: str, output_dir: str) -> None:
         page_html = self.request_handler.get(url).decode("utf-8")
         uuid = self._get_uuid(page_html)
         movie_id = self._get_movie_id(url)
@@ -47,7 +49,7 @@ class MovieDownloader:
 
         downloader = M3U8Downloader(
             input_file_path=video_url,
-            output_file_path=f"output/{movie_id}.mp4",
+            output_file_path=f"{output_dir}/{movie_id}.mp4",
         )
 
         downloader.download_playlist()

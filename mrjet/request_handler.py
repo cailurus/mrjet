@@ -1,7 +1,9 @@
-from typing import Optional
-from logger import logger
-from curl_cffi import requests
 import time
+from typing import Optional
+
+from curl_cffi import requests
+
+from mrjet.logger import logger
 
 
 class RequestHandler:
