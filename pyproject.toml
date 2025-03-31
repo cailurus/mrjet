@@ -10,11 +10,12 @@ authors = [
 ]
 description="simple m3u8 downloader for missav"
 readme = "README.md"
-requires-python = ">=3.6"
+requires-python = ">=3.10"
 dependencies = [
-    "requests",
-    "curl_cffi",
-    "pym3u8downloader"
+    "curl-cffi>=0.9.0",
+    "m3u8>=6.0.0",
+    "pym3u8downloader>=0.1.8",
+    "requests>=2.32.3",
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
